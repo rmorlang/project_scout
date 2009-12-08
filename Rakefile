@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "project_scout"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{scan directories to find the root directory of a project}
+    gem.description = %Q{scan directories to find the root directory of a project}
     gem.email = "rick@lee-morlang.com"
     gem.homepage = "http://github.com/rleemorlang/project_scout"
     gem.authors = ["Rick Lee-Morlang"]

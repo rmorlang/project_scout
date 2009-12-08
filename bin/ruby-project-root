@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+project_scout = File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib'))
+$LOAD_PATH.unshift(project_scout) unless $LOAD_PATH.include?(project_scout)
+
+require 'project_scout'
+
+project_root = ProjectScout.scan Dir.pwd
+
+if project_root.nil?
+  exit 1
+else
+  puts project_root
+end
+

@@ -1,6 +1,22 @@
-= project_scout
+= ProjectScout
 
-Description goes here.
+This is a simple library extracted from a few other projects. 
+
+It can scan a directory and all of its parents for various
+signs that the directory is the root of a Ruby project.
+The exact methods used to detect a Ruby project can be
+somewhat customized.
+
+Recently refactored for future extensibility, documented,
+and added test cases.
+
+Bonus shell command included: ruby-project-root
+
+== Usage
+
+See ProjectScout and ProjectScout::Dir for more info.
+
+  ProjectScout::Dir("/home/user/bubbles").ruby_project?
 
 == Note on Patches/Pull Requests
  
