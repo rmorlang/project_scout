@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require "spec_helper"
 
 module ProjectScout
   describe Dir do
@@ -17,7 +17,7 @@ module ProjectScout
           File.should_receive(:exists?).with("/parent/config/environment.rb").and_return true
           subject.should be_a_ruby_rails_project
         end
-          
+
         it "should be false if the directory is not the root of a rails project" do
           File.should_receive(:exists?).with("/parent/config/environment.rb").and_return false
           subject.should_not be_a_ruby_rails_project
@@ -33,7 +33,7 @@ module ProjectScout
         subject.should_receive(:contains?).with("features/env.rb")
         subject.ruby_cucumber_project?
       end
-      
+
       specify "#ruby_spec? should check if the path contains spec/spec_helper.rb" do
         subject.should_receive(:contains?).with("spec/spec_helper.rb")
         subject.ruby_rspec_project?
