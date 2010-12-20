@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
     "bin/ruby-project-root",
     "lib/project_scout.rb",
     "lib/project_scout/dir.rb",
+    "project_scout.gemspec",
     "spec/project_scout/dir_spec.rb",
     "spec/project_scout_spec.rb",
     "spec/spec.opts",
