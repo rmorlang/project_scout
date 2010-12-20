@@ -12,6 +12,13 @@ module ProjectScout
       end
       subject { Dir.new "/parent" }
 
+      describe "#git_repository?" do
+        it "should be true if the directory contains a .git directory" do
+          File.should_receive(:exists?).with("/parent/.git").and_return true
+          subject.should be_a_git_repository
+        end
+      end
+
       describe "#ruby_rails?" do
         it "should be true if the directory is the root of a rails project" do
           File.should_receive(:exists?).with("/parent/config/environment.rb").and_return true

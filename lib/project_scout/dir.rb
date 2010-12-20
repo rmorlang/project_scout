@@ -1,6 +1,6 @@
 module ProjectScout
 
-  # This is a helper class with a bit of syntactical magic. Want to know if 
+  # This is a helper class with a bit of syntactical magic. Want to know if
   # /home/user/bubbles is a Rails project?
   #
   #   ProjectScout::Dir("/home/user/bubbles").ruby_rails_project?
@@ -14,6 +14,10 @@ module ProjectScout
 
     def initialize(path)
       self.path = path
+    end
+
+    def git_repository?
+      contains? ".git"
     end
 
     def ruby_cucumber?
@@ -33,15 +37,15 @@ module ProjectScout
     end
 
     # Explanation of magic:
-    # 
+    #
     # 1) if a method is invoked with a "_project?" suffix, strip "_project"
-    #    and call with the same arguments. Thus calling foo_bar_project? 
+    #    and call with the same arguments. Thus calling foo_bar_project?
     #    invokes foo_bar?
     #
     # 2) if a method invoked has no underscores in it, and local methods
-    #    exist that start with the same string, invoke all of them and 
-    #    return true if and return true. Thus calling foo_project? when 
-    #    foo_bar_project? and foo_baz_project? exist will return true 
+    #    exist that start with the same string, invoke all of them and
+    #    return true if and return true. Thus calling foo_project? when
+    #    foo_bar_project? and foo_baz_project? exist will return true
     #    only if any of foo_bar_project? and foo_baz_project? return true.
     #
     def method_missing(method, *args)
